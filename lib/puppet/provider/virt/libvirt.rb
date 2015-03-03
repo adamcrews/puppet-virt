@@ -184,7 +184,8 @@ Puppet::Type.type(:virt).provide(:libvirt) do
   end
 
   #TODO manipulate mac addrs
-  def macaddrs?(ifname)
+  def macaddrs?(macaddr)
+    resource[:macaddrs]
   end
 
   def macaddrs

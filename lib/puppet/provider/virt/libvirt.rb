@@ -183,6 +183,16 @@ Puppet::Type.type(:virt).provide(:libvirt) do
     #warnonce "It is not possible to change interfaces settings for an existing guest."
   end
 
+  #TODO manipulate mac addrs
+  def macaddrs?(ifname)
+  end
+
+  def macaddrs
+  end
+
+  def macaddrs=(value)
+  end
+
   # Setup the virt-install graphic configuration arguments
   def graphic
     opt = resource[:graphics]

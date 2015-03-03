@@ -50,7 +50,7 @@ Puppet::Type.type(:virt).provide(:libvirt) do
     else
       debug "Virtualization type: %s" % [resource[:virt_type]]
 
-      args = generalargs(bootoninstall) + network + graphic + bootargs
+      args = generalargs(bootoninstall) + network + graphic + keymap + bootargs
       debug "[INFO] virt-install arguments: #{args}"
       virtinstall args
     end
@@ -190,6 +190,14 @@ Puppet::Type.type(:virt).provide(:libvirt) do
       when :enable || nil then args = ["--vnc"]
       when :disable then args = ["--nographics"]
       else args = ["--vncport=" + opt.split(':')[1]]
+    end
+    args
+  end
+
+  def keymap
+    opt = resource[:keymap]
+    case opt
+      when 'en-us' then args = ["--keymap 'en-us'"]
     end
     args
   end

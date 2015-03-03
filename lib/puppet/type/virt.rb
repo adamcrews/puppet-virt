@@ -514,6 +514,18 @@ Image files must end with `*.img`, `*.qcow` or `*.qcow2`"
     `winxp64`: Microsoft Windows XP (x86_64)"
     end
 
+    newparam(:keymap) do
+      desc "Specify the keymap to use for vnc connections.
+  Available values:
+    `Auto`:
+      Let vnc/qemu/kvm/libvirt figure it out, but it's almost alway wrong.
+    `en-us`:
+      Most sensable value, lots of others are available, but not supported here (yet)."
+
+      newvalues(:auto, 'en-us')
+    end
+    
+
     newparam(:virt_type) do
       desc "Specify the guest virtualization type. Mandatory field.
   Available values:

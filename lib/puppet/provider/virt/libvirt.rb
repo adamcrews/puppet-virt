@@ -174,13 +174,13 @@ Puppet::Type.type(:virt).provide(:libvirt) do
 
   #TODO the Libvirt biding for ruby doesnt support this feature
   def interfaces
-    warnonce "It is not possible to change interfaces settings for an existing guest."
+    #warnonce "It is not possible to change interfaces settings for an existing guest."
     resource[:interfaces]
   end
 
   #TODO the Libvirt biding for ruby doesnt support this feature
   def interfaces=(value)
-    warnonce "It is not possible to change interfaces settings for an existing guest."
+    #warnonce "It is not possible to change interfaces settings for an existing guest."
   end
 
   # Setup the virt-install graphic configuration arguments
@@ -271,6 +271,8 @@ Puppet::Type.type(:virt).provide(:libvirt) do
       case status
       when :suspended
         exec { @guest.resume }
+      when :running
+        # Nothing to do
       else
         exec { @guest.create }
       end

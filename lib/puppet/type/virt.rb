@@ -522,7 +522,7 @@ Image files must end with `*.img`, `*.qcow` or `*.qcow2`"
     `en-us`:
       Most sensable value, lots of others are available, but not supported here (yet)."
 
-      newvalues(:auto, 'en-us')
+      newvalues(:auto, :'en-us')
     end
     
 

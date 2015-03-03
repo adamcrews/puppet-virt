@@ -197,7 +197,7 @@ Puppet::Type.type(:virt).provide(:libvirt) do
   def keymap
     opt = resource[:keymap]
     case opt
-      when 'en-us' then args = ["--keymap='en-us'"]
+      when :'en-us' then args = ["--keymap='en-us'"]
       else args = ["--keymap=Auto"]
     end
     args

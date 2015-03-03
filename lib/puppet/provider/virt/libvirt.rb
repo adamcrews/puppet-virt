@@ -189,6 +189,7 @@ Puppet::Type.type(:virt).provide(:libvirt) do
   end
 
   def macaddrs
+    resource[:macaddrs]
   end
 
   def macaddrs=(value)
